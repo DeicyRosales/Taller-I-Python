@@ -1,6 +1,8 @@
 from model.Coche import Coche
 from model.Motor import Motor
 from model.Bicicleta import Bicicleta
+from model.Perro import Perro
+from model.Gato import Gato
 
 def ejemplo_punto1_al_4():
     print("_______________")
@@ -37,13 +39,26 @@ def ejemplo_polimorfismo():
     for vehiculo in lista_medios_de_transporte: 
         vehiculo.acelerar()
         
+def ejemplo_abstractas():
+    print("_______________")
+    print("Ejemplo Abstractas")
+    print("_______________")        
+    
+    perro1 = Perro()
+    perro2 = Perro()
+    gato1 = Gato()
+    gato2 = Gato()
+    
+    lista_animales = [perro1, perro2, gato1, gato2]
+    
+    for animal in lista_animales:
+        animal.hacer_sonido() 
     
     
-    
-    
-
+#Llamado a metodos 
 ejemplo_punto1_al_4()
 ejemplo_polimorfismo()
+ejemplo_abstractas()
     
     
     
