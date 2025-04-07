@@ -3,6 +3,10 @@ from model.Motor import Motor
 from model.Bicicleta import Bicicleta
 from model.Perro import Perro
 from model.Gato import Gato
+from model.Pajaro import Pajaro
+from model.Avion import Avion
+from model.ExcesoVelocidadException import ExcesoVelocidadException
+
 
 def ejemplo_punto1_al_4():
     print("_______________")
@@ -53,12 +57,46 @@ def ejemplo_abstractas():
     
     for animal in lista_animales:
         animal.hacer_sonido() 
+
+def ejemplo_interface():
+    print("_______________")
+    print("Ejemplo Interfaces")
+    print("_______________") 
     
+    pajaro1 = Pajaro()
+    pajaro1.volar()
     
+    avion1 = Avion()
+    avion1.volar()
+            
+def ejemplo_composicion():
+    print("_______________")
+    print("Ejemplo composicion")
+    print("_______________")
+
+    coche1 = Coche("Toyota", "Corolla", 2020, 200, Motor(300, "electrico"))
+
+    coche1.describir_con_motor()
+    coche1.acelerar()
+
+def ejemplo_excepciones():
+    print("_______________")
+    print("Ejemplo excepciones")
+    print("_______________")
+    
+    coche = Coche("Reanult", "Logan", 2020, 180, Motor(250, "electrico"))
+    try:
+        coche.incrementar_velocidad(300)
+    except ExcesoVelocidadException as e:
+        print(e)
+       
 #Llamado a metodos 
 ejemplo_punto1_al_4()
 ejemplo_polimorfismo()
 ejemplo_abstractas()
+ejemplo_interface()
+ejemplo_composicion()
+ejemplo_excepciones()
     
     
     

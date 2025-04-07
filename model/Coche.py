@@ -36,6 +36,9 @@ class Coche (Vehiculo):
               
     def describir(self):
         print(f"Este coche es un {self.__marca} {self.__modelo} del año {self.__año}")
+        
+    def describir_con_motor(self):
+        print(f"Este coche es un {self.__marca} {self.__modelo} del año {self.__año}")
         print(f"El motor es de tipo {self.__motor.get_tipo()} y una potencia {self.get_motor().get_tipo()}")
         
     def acelerar(self):

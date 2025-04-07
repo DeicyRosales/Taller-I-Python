@@ -1,4 +1,4 @@
-class I_Voldor:
+class I_Volador:
     
     def volar(self):
        pass 
