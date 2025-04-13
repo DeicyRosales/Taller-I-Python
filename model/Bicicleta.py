@@ -15,5 +15,9 @@ class Bicicleta(Vehiculo):
     def pedalear(self):
         print("Pedaleando") 
          
-    
-    
+    @classmethod
+    def crear_bicicleta(cls):
+        velocidad = input("Ingrese la velocidad de la bicicleta: ")
+        tipo = input("Ingrese el tipo de la bicicleta: ")
+        
+        return cls((int(velocidad), tipo))

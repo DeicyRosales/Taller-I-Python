@@ -67,14 +67,6 @@ def incrementar_velocidad():
             except ExcesoVelocidadException as e:
                 print(e)
          
-
-
-def crear_bicicleta():
-    velocidad = input("Ingrese la velocidad de la bicicleta: ")
-    tipo = input("Ingrese el tipo de la bicicleta: ")
-      
-    bicicleta = Bicicleta(int(velocidad), tipo)
-    lista_medios_de_transporte.append(bicicleta)
     
 while True:
     print("\nMain menu")
@@ -92,7 +84,8 @@ while True:
         coche = Coche.crear_coche()
         lista_medios_de_transporte.append(coche)
     elif main_option == "2":
-        crear_bicicleta()
+        bicicleta = Bicicleta.crear_bicicleta()
+        lista_medios_de_transporte.append(bicicleta)
     elif main_option == "3":
         describir_coches()
     elif main_option == "4":
