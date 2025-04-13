@@ -1,3 +1,4 @@
 # Taller-I-Python
  Programacion orientada a objectos
-![menu](https://github.com/user-attachments/assets/92f41580-356a-45f9-a532-396fa0b33b8c)
+
+![Imagen 2](https://github.com/user-attachments/assets/b0e2e63b-5ba2-48fe-81b6-d87ae2266851)
