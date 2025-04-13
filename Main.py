@@ -7,41 +7,25 @@ from model.Pajaro import Pajaro
 from model.Avion import Avion
 from model.ExcesoVelocidadException import ExcesoVelocidadException
 
+lista_medios_de_transporte = []
 
-def ejemplo_punto1_al_4():
+def acelerar_vehiculos():
     print("_______________")
-    print("Ejemplo clases, encasulamiento, modificadores, constructores, herencia")
-    print("_______________")
-
-    # Creación de objetos
-    coche1 = Coche("Toyota", "Corolla", 2020, 200, Motor(300, "electrico"))
-    coche2 = Coche("Ford", "Mustang", 2022, 250, Motor(350, "gasolina"))
-    coche3 = Coche("Tesla", "Model S", 2023, 80, Motor(280, "acpm"))
-
-    # Mostrar descripción de los coches
-    coche1.describir()
-    coche2.describir()
-    coche3.describir()
-
-def ejemplo_polimorfismo():
-    print("_______________")
-    print("Ejemplo Polimorfismo")
+    print("Acelerar vehiculos")
     print("_______________")
     
-    lista_medios_de_transporte = []
+    for vehiculo in lista_medios_de_transporte:
+        vehiculo.acelerar() 
+
+def describir_coches():
+    print("_______________")
+    print("Describir coches")
+    print("_______________")
     
-    coche1 = Coche("Toyota", "Corolla", 2020, 200, Motor(300, "electrico"))
-    coche2 = Coche("Ford", "Mustang", 2022, 250, Motor(350, "gasolina"))
-    bicicleta1 = Bicicleta("20 kl/h", "Ruta")
-    bicicleta2 = Bicicleta("15 kl/h", "Ruta")
-    
-    lista_medios_de_transporte.append(coche1)
-    lista_medios_de_transporte.append(coche2)
-    lista_medios_de_transporte.append(bicicleta1)
-    lista_medios_de_transporte.append(bicicleta2)
-    
-    for vehiculo in lista_medios_de_transporte: 
-        vehiculo.acelerar()
+    for vehiculo in lista_medios_de_transporte:
+        if(isinstance(vehiculo, Coche)):
+            vehiculo.describir_con_motor()     
+            
         
 def ejemplo_abstractas():
     print("_______________")
@@ -69,37 +53,63 @@ def ejemplo_interface():
     avion1 = Avion()
     avion1.volar()
             
-def ejemplo_composicion():
+def incrementar_velocidad():
     print("_______________")
-    print("Ejemplo composicion")
+    print("Incrementar velocidad a todos los coches")
     print("_______________")
+    
+    velocidad = input("Ingrese la velocidad que desea incrementar: ")
+  
+    for vehiculo in lista_medios_de_transporte:
+        if(isinstance(vehiculo, Coche)):
+            try:
+                vehiculo.incrementar_velocidad(int(velocidad))
+            except ExcesoVelocidadException as e:
+                print(e)
+         
 
-    coche1 = Coche("Toyota", "Corolla", 2020, 200, Motor(300, "electrico"))
 
-    coche1.describir_con_motor()
-    coche1.acelerar()
+def crear_bicicleta():
+    velocidad = input("Ingrese la velocidad de la bicicleta: ")
+    tipo = input("Ingrese el tipo de la bicicleta: ")
+      
+    bicicleta = Bicicleta(int(velocidad), tipo)
+    lista_medios_de_transporte.append(bicicleta)
+    
+while True:
+    print("\nMain menu")
+    print("1. Crear coche (Encapsulamiento, Poimofirmos, Herencia, composicion)")
+    print("2. Crear Bicicleta (Encapsulamiento, Poimofirmos, Herencia)")
+    print("3. Describir coches con motor")
+    print("4. Acelerar todos los vehiculos (Sobreescribir metodo)")
+    print("5. Ejemplo Animales (abstractas)")
+    print("6. Ejemplo Volar (interfaces)")
+    print("7. Incrementar velocidad (Excepciones)")
+    print("8. Exit")
+    main_option = input("Seleccione una opcion: ")
 
-def ejemplo_excepciones():
-    print("_______________")
-    print("Ejemplo excepciones")
-    print("_______________")
-    
-    coche = Coche("Reanult", "Logan", 2020, 180, Motor(250, "electrico"))
-    try:
-        coche.incrementar_velocidad(300)
-    except ExcesoVelocidadException as e:
-        print(e)
-       
-#Llamado a metodos 
-ejemplo_punto1_al_4()
-ejemplo_polimorfismo()
-ejemplo_abstractas()
-ejemplo_interface()
-ejemplo_composicion()
-ejemplo_excepciones()
-    
-    
-    
+    if main_option == "1":
+        coche = Coche.crear_coche()
+        lista_medios_de_transporte.append(coche)
+    elif main_option == "2":
+        crear_bicicleta()
+    elif main_option == "3":
+        describir_coches()
+    elif main_option == "4":
+        acelerar_vehiculos()
+    elif main_option == "5":
+        ejemplo_abstractas()
+    elif main_option == "6":
+        ejemplo_interface()
+    elif main_option == "7":
+        incrementar_velocidad()
+    elif main_option == "8":
+        break
+    else:
+        print("Opcion invalida")
+
+
+
 
 
 

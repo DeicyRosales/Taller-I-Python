@@ -38,7 +38,7 @@ class Coche (Vehiculo):
         print(f"Este coche es un {self.__marca} {self.__modelo} del año {self.__año}")
         
     def describir_con_motor(self):
-        print(f"Este coche es un {self.__marca} {self.__modelo} del año {self.__año}")
+        print(f"Este coche es un {self.__marca} {self.__modelo} del año {self.__año} velocidad {self.get_velocidad()}")
         print(f"El motor es de tipo {self.__motor.get_tipo()} y una potencia {self.get_motor().get_tipo()}")
         
     def acelerar(self):
@@ -50,5 +50,14 @@ class Coche (Vehiculo):
            else:
                vel = self.get_velocidad() + velocidad
                self.set_velocidad(vel)
-                  
-               
+          
+    @classmethod
+    def crear_coche(cls):
+        marca = input("Ingrese la marca del vehiculo: ")
+        modelo = input("Ingrese el modelo del motor: ")
+        año = int(input("Ingrese el año del coche : "))
+        velocidad = int(input("Ingrese la velocidad del coche: "))
+        potencia_motor = int(input("Ingrese la potencia del motor: "))
+        tipo_motor = input("Ingrese el tipo de motor: ")
+      
+        return  cls(marca, modelo , año, velocidad, Motor(potencia_motor, tipo_motor))
